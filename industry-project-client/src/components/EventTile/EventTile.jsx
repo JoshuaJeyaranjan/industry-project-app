@@ -23,12 +23,24 @@ const EventTile = ({ event }) => {
     );
   }
 
+  const {
+    eventName,
+    startDate,
+    endDate,
+    locations, // Assuming locations is an array of objects with an 'address' property
+  } = event.calEvent;
 
   return (
     <section className='card'>
       <div className='card__image'></div>
-      <h2 className='card__title'>{event.calEvent.eventName}</h2>
-      <h2>{event.calEvent.endDateTime}</h2>
+      <h2 className='card__title'>{eventName}</h2>
+      <p>Start Time: {startDate}</p>
+      <p>End Time: {endDate}</p>
+      {locations && (
+        <p>
+          Address: {locations.map((location, index) => location.address).join(', ')}
+        </p>
+      )}
     </section>
   );
 };
