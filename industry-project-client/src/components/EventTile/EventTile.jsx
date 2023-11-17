@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './EventTile.scss';
-
 const EventTile = ({ event }) => {
   // Check if event is not defined
   if (!event) {
@@ -12,7 +11,6 @@ const EventTile = ({ event }) => {
       </section>
     );
   }
-
   // Check if event.calEvent is not defined
   if (!event.calEvent) {
     return (
@@ -22,7 +20,6 @@ const EventTile = ({ event }) => {
       </section>
     );
   }
-
   const {
     eventName,
     startDate,
@@ -39,6 +36,7 @@ const EventTile = ({ event }) => {
     const categoryNames = category.map((cat) => cat.name);
     categoryString = categoryNames.join(', ');
   }
+
 
   // Extract relevant properties from the accessibility object
   const accessibilityString = accessibility ? accessibility : 'Accessibility Not Available';
@@ -59,11 +57,9 @@ const EventTile = ({ event }) => {
     </section>
   );
 };
-
 EventTile.propTypes = {
   event: PropTypes.object, // Marking the prop as optional since it's checked for undefined
 };
-
 export default EventTile;
 
 // return (
@@ -100,6 +96,3 @@ export default EventTile;
 
 //     </section>
 //   );
-//TEST TEST
-//FUCK
-// TEST TEST
