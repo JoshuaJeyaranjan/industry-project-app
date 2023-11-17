@@ -3,9 +3,12 @@ import './NavBar.scss';
 
 const NavBar = () => {
     return (
-        <div>
-            
-        </div>
+        <nav className='nav'>
+            <div className='nav__innerbox'>
+                <div className='nav__fest'></div>
+                <div className='nav__event'></div>
+            </div>
+        </nav>
     );
 };
 
