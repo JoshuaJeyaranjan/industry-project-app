@@ -96,6 +96,8 @@ export default EventTile;
 //           <div className={`card__icon-food ${features['Onsite Food and Beverages'] ? 'active' : ''}`}></div>
 //           <div className={`card__icon-access ${features.Accessibility === 'full' ? 'active' : ''}`}></div>
 //         </div>
-//       </div>
+//       </div> 
+
 //     </section>
 //   );
+// TEST TEST
