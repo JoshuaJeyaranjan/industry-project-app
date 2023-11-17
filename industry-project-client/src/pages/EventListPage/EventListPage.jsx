@@ -1,9 +1,6 @@
-
-import './App.scss';
 import React, { useState, useEffect } from 'react';
 
-
-const App = () => {
+const EventListPage = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -15,25 +12,25 @@ const App = () => {
       const response = await fetch('http://localhost:8081/events');
       const result = await response.json();
       setEvents(result.events);
-      console.log(result.events)
     } catch (error) {
       console.error('Error fetching events:', error);
     }
   };
+
   return (
     <div>
-    <h1>Events</h1>
-    <ul>
-      {events.map(event => (
-        <li key={event.id}>
-          <strong>{event.eventName}</strong>
-          <p>Date: {event.date}</p>
-          <p>Location: {event.location}</p>
-        </li>
-      ))}
-    </ul>
-  </div>
+      <h1>Events</h1>
+      <ul>
+        {events.map(event => (
+          <li key={event.id}>
+            <strong>{event.title}</strong>
+            <p>Date: {event.date}</p>
+            <p>Location: {event.location}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
-}
+};
 
-export default App;
+export default EventListPage;
