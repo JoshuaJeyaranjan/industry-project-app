@@ -1,0 +1,75 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    padding-right: 16px;
+    align-items: flex-start;
+
+
+    &__img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 16px;
+    }
+
+    &__descripttion {
+        margin-bottom: 16px;
+    }
+
+    &__box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+
+    &__inner-title {
+        font-weight: bold;
+
+    }
+
+    &__address {
+
+    }
+
+    &__map{
+
+    }
+
+    &__icon {
+        width: 10px;
+        height: 10px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &__icon-p {
+        background-image: url(../../assets/icons/parking-fill.svg);
+    }
+
+    &__icon-food{
+        background-image: url(../../assets/icons/food.svg);
+    }
+
+    &__icon-acces {
+        background-image: url(../../assets/icons/accessibility.svg);
+    }
+
+    &__website {
+
+    }
+
+    &__email {
+
+    }
+
+    &__phone {
+
+    }
+
+
+    
+
+
+
+}
