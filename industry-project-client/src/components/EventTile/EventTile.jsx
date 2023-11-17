@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './EventTile.scss';
-
 const EventTile = ({ event }) => {
   // Check if event is not defined
   if (!event) {
@@ -12,7 +11,6 @@ const EventTile = ({ event }) => {
       </section>
     );
   }
-
   // Check if event.calEvent is not defined
   if (!event.calEvent) {
     return (
@@ -22,20 +20,30 @@ const EventTile = ({ event }) => {
       </section>
     );
   }
-
   const {
     eventName,
     startDate,
     endDate,
-    locations, // Assuming locations is an array of objects with an 'address' property
+    locations,
+    accessibility,
+    category,
   } = event.calEvent;
-
+  // Extract relevant properties from the category object
+  let categoryString = 'Category Not Available';
+  if (category && Array.isArray(category) && category.length > 0) {
+    const categoryNames = category.map((cat) => cat.name);
+    categoryString = categoryNames.join(', ');
+  }
+  // Extract relevant properties from the accessibility object
+  const accessibilityString = accessibility ? accessibility : 'Accessibility Not Available';
   return (
     <section className='card'>
       <div className='card__image'></div>
       <h2 className='card__title'>{eventName}</h2>
-      <p>Start Time: {startDate}</p>
-      <p>End Time: {endDate}</p>
+      <p>Start Time: {new Date(startDate).toLocaleString()}</p>
+      <p>End Time: {new Date(endDate).toLocaleString()}</p>
+      <p>Category: {categoryString}</p>
+      <p>Accessibility: {accessibilityString}</p>
       {locations && (
         <p>
           Address: {locations.map((location, index) => location.address).join(', ')}
@@ -44,13 +52,10 @@ const EventTile = ({ event }) => {
     </section>
   );
 };
-
 EventTile.propTypes = {
   event: PropTypes.object, // Marking the prop as optional since it's checked for undefined
 };
-
 export default EventTile;
-
 
 
 // return (
