@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './EventTile.scss';
+
+
+// Placeholder image URL
+const placeholderImage = 'https://via.placeholder.com/150';
+
 const EventTile = ({ event }) => {
   // Check if event is not defined
   if (!event) {
@@ -27,6 +32,14 @@ const EventTile = ({ event }) => {
     locations,
     accessibility,
     category,
+    shortDescription,
+    image,
+    freeEvent,
+    reservationsRequired,
+    eventWebsite,
+    features,
+    orgPhone,
+    orgEmail,
   } = event.calEvent;
 
   // Extract relevant properties from the category object
@@ -40,19 +53,54 @@ const EventTile = ({ event }) => {
 
   // Extract relevant properties from the accessibility object
   const accessibilityString = accessibility ? accessibility : 'Accessibility Not Available';
+  const baseUrl = 'http://localhost:3001'; // Replace with your actual base URL
 
   return (
     <section className='card'>
-      <div className='card__image'></div>
+      <div className='card__image'>
+        <img
+          src={`${baseUrl}${image.url || placeholderImage}`}
+          alt={eventName}
+          onError={(e) => {
+            e.target.src = placeholderImage;
+          }}
+        />
+      </div>
       <h2 className='card__title'>{eventName}</h2>
       <p>Start Time: {new Date(startDate).toLocaleString()}</p>
       <p>End Time: {new Date(endDate).toLocaleString()}</p>
       <p>Category: {categoryString}</p>
       <p>Accessibility: {accessibilityString}</p>
+      <p>Short Description: {shortDescription}</p>
+      <p>Free? {freeEvent}</p>
+      <p>Reservations? {reservationsRequired}</p>
+      <a href={eventWebsite} target="_blank" rel="noopener noreferrer">
+        Event Site
+      </a>
+      <p>org phone {orgPhone}</p>
+      <p>org email {orgEmail}</p>
+
       {locations && (
-        <p>
-          Address: {locations.map((location, index) => location.address).join(', ')}
-        </p>
+        <div>
+          <p>Locations:</p>
+          {locations.map((location, index) => (
+            <div key={index}>
+              <p>{location.locationName}</p>
+              <p>{location.address}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {features && (
+        <div>
+          <p>Features:</p>
+          {Object.entries(features).map(([feature, value], index) => (
+            <p key={index}>
+              {feature}: {value.toString()}
+            </p>
+          ))}
+        </div>
       )}
     </section>
   );
