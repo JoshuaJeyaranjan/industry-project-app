@@ -8,8 +8,14 @@ const EventDetails = () => {
             <div className='section__descripttion'></div>
             <div className='section__box'>
                 <h3 className='section__inner-title'>Date and Time</h3>
-                <div></div>
-                <div></div>
+                <div className='section__box-inner'>
+                    <div className='section__icon-cal section__icon'></div>
+                    <div className='section__date'> November 28, 2023 - April 13, 2024</div>
+                </div>
+                <div className='section__box-inner'>
+                    <div className='section__icon-time section__icon'></div>
+                    <div className='section__time'>7:00 PM EST</div>
+                </div>
             </div>
             <div className='section__box'>
                 <h3 className='section__inner-title'>Location</h3>
@@ -18,12 +24,16 @@ const EventDetails = () => {
             </div>
             <div className='section__box'>
                 <h3 className='section__inner-title'>Cost</h3>
+                <div className=''></div>
+                <div className=''></div>
             </div>
             <div className='section__box'>
                 <h3 className='section__inner-title'>Facilities</h3>
-                <div className='section__icon-p'></div>
-                <div className='section__icon-food'></div>
-                <div className='section__icon-access'></div>
+                <div className='section__box-icon'>
+                    <div className='section__icon-p section__icon'></div>
+                    <div className='section__icon-food section__icon'></div>
+                    <div className='section__icon-access section__icon'></div>
+                </div>
             </div>
             <div className='section__box'>
                 <h3 className='section__inner-title'>More Information</h3>
