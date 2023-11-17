@@ -21,13 +21,7 @@ const EventListPage = () => {
     <div>
       <h1>Events</h1>
       <ul>
-        {events.map(event => (
-          <li key={event.id}>
-            <strong>{event.title}</strong>
-            <p>Date: {event.date}</p>
-            <p>Location: {event.location}</p>
-          </li>
-        ))}
+ 
       </ul>
     </div>
   );

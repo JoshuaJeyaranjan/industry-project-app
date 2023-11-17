@@ -1,10 +1,9 @@
-//HI SONIA
+// HI SONIA
 import './App.scss';
 import React, { useState, useEffect } from 'react';
 
-
 const App = () => {
-  const [events, setEvents] = useState([]);
+  const [eventNames, setEventNames] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -14,26 +13,34 @@ const App = () => {
     try {
       const response = await fetch('http://localhost:8081/events');
       const result = await response.json();
-      setEvents(result.events);
-      console.log(result.events)
+
+      // Log the entire result for better inspection
+      console.log('Full Result:', result);
+
+      // Ensure the 'events' property exists and is an array
+      const fetchedEvents = Array.isArray(result) ? result : [];
+
+      // Extract the first 50 event names
+      const first50EventNames = fetchedEvents
+        .slice(0, 50) // Take the first 50 events
+        .map(event => event.calEvent.eventName); // Adjusted property path
+
+      setEventNames(first50EventNames);
     } catch (error) {
       console.error('Error fetching events:', error);
     }
   };
+
   return (
     <div>
-    <h1>Events</h1>
-    <ul>
-      {events.map(event => (
-        <li key={event.id}>
-          <strong>{event.eventName}</strong>
-          <p>Date: {event.date}</p>
-          <p>Location: {event.location}</p>
-        </li>
-      ))}
-    </ul>
-  </div>
+      <h1>Event Names (First 50)</h1>
+      <ul>
+        {eventNames.map((eventName, index) => (
+          <li key={index}>{eventName}</li>
+        ))}
+      </ul>
+    </div>
   );
-}
+};
 
 export default App;
