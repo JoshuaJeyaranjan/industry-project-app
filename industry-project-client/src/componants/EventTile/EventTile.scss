@@ -1,0 +1,74 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    
+    &__image {
+        width: 100%;
+        height: 100px; //hypothetical
+
+    }
+
+    &__title {
+        font-size: 20px; //hypothetical
+
+    }
+
+    &__upper-details-box {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__inner-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    &__date {
+
+
+
+        &-icon {
+
+        }
+
+        &-title{
+
+        }
+
+    }
+
+    &__location {
+
+        &-icon {
+
+        }
+
+        &-title{
+            
+        }
+    }
+
+    &__cost{
+
+    }
+
+    &__season {
+
+    }
+    
+
+    &__lower-details-box {
+
+    }
+
+    &__icon-box {
+
+    }
+
+    &__icon-parking,
+    &__icon-food,
+    &__icon-access {
+
+    }
+}
