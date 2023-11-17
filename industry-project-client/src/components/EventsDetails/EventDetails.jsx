@@ -38,8 +38,6 @@ const EventDetails = () => {
             <div className='section__box'>
                 <h3 className='section__inner-title'>More Information</h3>
                 <div className='section__website'><a>Website</a></div>
-                <div className='section__email'><a>Email</a></div>
-                <div className='section__phone'><a>Phone</a></div>
             </div>
             
         </section>
