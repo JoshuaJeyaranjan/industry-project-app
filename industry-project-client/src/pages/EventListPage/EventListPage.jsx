@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import EventTile from '../../components/EventTile/EventTile'; // Import the EventTile component
+import { Link } from 'react-router-dom';
+import EventDetailsPage from '../EventDetailsPage/EventDetailsPage';
 
 const EventListPage = () => {
   const [events, setEvents] = useState([]);
@@ -36,7 +38,9 @@ const EventListPage = () => {
     <div>
       <h1>Event List</h1>
       {events.map((event, index) => (
-  <EventTile key={index} event={event} />
+        <Link to={<EventDetailsPage/>}> 
+          <EventTile key={index} event={event} />
+        </Link>
 ))}
 
     </div>
