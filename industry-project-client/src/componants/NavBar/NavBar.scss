@@ -1,0 +1,29 @@
+.nav{
+    display: flex;
+    justify-content: flex-start;
+    margin: 16px;
+    height: 50px; // hypothetical height for it to show up for now
+
+    &__innerbox {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    &__fest {
+        
+        &:hover{
+
+        }
+
+    }
+
+    &__event {
+
+        &:hover {
+          
+        }
+
+    }
+
+}
