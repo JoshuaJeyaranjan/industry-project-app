@@ -28,14 +28,19 @@ const EventTile = ({ event }) => {
     accessibility,
     category,
   } = event.calEvent;
+
   // Extract relevant properties from the category object
   let categoryString = 'Category Not Available';
+
   if (category && Array.isArray(category) && category.length > 0) {
     const categoryNames = category.map((cat) => cat.name);
     categoryString = categoryNames.join(', ');
   }
+
+
   // Extract relevant properties from the accessibility object
   const accessibilityString = accessibility ? accessibility : 'Accessibility Not Available';
+
   return (
     <section className='card'>
       <div className='card__image'></div>
@@ -56,7 +61,6 @@ EventTile.propTypes = {
   event: PropTypes.object, // Marking the prop as optional since it's checked for undefined
 };
 export default EventTile;
-
 
 // return (
 //     <section className='card'>
@@ -88,6 +92,7 @@ export default EventTile;
 //           <div className={`card__icon-food ${features['Onsite Food and Beverages'] ? 'active' : ''}`}></div>
 //           <div className={`card__icon-access ${features.Accessibility === 'full' ? 'active' : ''}`}></div>
 //         </div>
-//       </div>
+//       </div> 
+
 //     </section>
 //   );
